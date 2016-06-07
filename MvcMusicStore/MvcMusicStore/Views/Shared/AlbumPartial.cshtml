@@ -1,0 +1,23 @@
+﻿@model MvcMusicStore.Models.Album
+
+<div class="album">
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Artist.Name)
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+        @Ajax.ActionLink("Buy", 
+                        "Buy", 
+                        new { id=@Model.AlbumId }, 
+                        new AjaxOptions {
+                            UpdateTargetId="shoppingCart", 
+                            InsertionMode=InsertionMode.Replace, 
+                            HttpMethod="GET"
+                        })
+</div>
+</div>
